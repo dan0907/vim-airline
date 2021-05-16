@@ -84,7 +84,7 @@ function! airline#extensions#apply(...)
   if &previewwindow && empty(get(w:, 'airline_section_a', ''))
     let w:airline_section_a = 'Preview'
     let w:airline_section_b = ''
-    let w:airline_section_c = bufname(winbufnr(winnr()))
+    let w:airline_section_c = fnamemodify(bufname(winbufnr(winnr())), ":~:.")
   endif
 
   if has_key(filetype_overrides, &ft) &&
